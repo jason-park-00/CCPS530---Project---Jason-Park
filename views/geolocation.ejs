@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            background-color:white;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+        }
+    </style>
+
+    <title>IP Geolocation Project By: Jason Park</title>
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+	
+
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+  
+    
+</head>
+<body>
+   
+    <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="crossorigin=""></script>
+    
+   <br>
+   <h1 style="color:black;text-align:center;">IP Geolocation Project by: Jason Park</h1>
+  
+   <br>
+     
+        <div id="map" style="width: 600px; height: 400px; margin: auto"></div>
+        
+        <p style="color:black;" class="text-center ">
+        
+            <script>
+
+                var map = L.map('map').setView([<%= latt %>, <%= long %>], 13);
+            
+                var tiles = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+                    maxZoom: 18,
+                    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+                        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+                    id: 'mapbox/streets-v11',
+                    tileSize: 512,
+                    zoomOffset: -1
+                }).addTo(map);
+
+                var marker = L.marker([<%= latt %>, <%= long %>]).addTo(map);
+
+            
+            
+            </script>
+            
+        
+        </p>
+        
+
+
+
+
+
+
+
+</body>
+</html>
